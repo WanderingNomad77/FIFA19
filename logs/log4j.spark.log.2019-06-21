@@ -1,0 +1,957 @@
+19/06/21 00:04:06 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+19/06/21 00:04:06 INFO SparkContext: Running Spark version 2.4.0
+19/06/21 00:04:06 INFO SparkContext: Submitted application: sparklyr
+19/06/21 00:04:07 INFO SecurityManager: Changing view acls to: ubuntu
+19/06/21 00:04:07 INFO SecurityManager: Changing modify acls to: ubuntu
+19/06/21 00:04:07 INFO SecurityManager: Changing view acls groups to: 
+19/06/21 00:04:07 INFO SecurityManager: Changing modify acls groups to: 
+19/06/21 00:04:07 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(ubuntu); groups with view permissions: Set(); users  with modify permissions: Set(ubuntu); groups with modify permissions: Set()
+19/06/21 00:04:07 INFO Utils: Successfully started service 'sparkDriver' on port 42579.
+19/06/21 00:04:07 INFO SparkEnv: Registering MapOutputTracker
+19/06/21 00:04:07 INFO SparkEnv: Registering BlockManagerMaster
+19/06/21 00:04:07 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+19/06/21 00:04:07 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+19/06/21 00:04:07 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-c4573cfd-7244-4bcd-9129-a2a8af28211b
+19/06/21 00:04:07 INFO MemoryStore: MemoryStore started with capacity 912.3 MB
+19/06/21 00:04:07 INFO SparkEnv: Registering OutputCommitCoordinator
+19/06/21 00:04:07 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+19/06/21 00:04:07 INFO SparkUI: Bound SparkUI to 127.0.0.1, and started at http://localhost:4040
+19/06/21 00:04:07 INFO SparkContext: Added JAR file:/home/ubuntu/R/x86_64-pc-linux-gnu-library/3.5/sparklyr/java/sparklyr-2.3-2.11.jar at spark://localhost:42579/jars/sparklyr-2.3-2.11.jar with timestamp 1561075447420
+19/06/21 00:04:07 INFO Executor: Starting executor ID driver on host localhost
+19/06/21 00:04:07 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 45515.
+19/06/21 00:04:07 INFO NettyBlockTransferService: Server created on localhost:45515
+19/06/21 00:04:07 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+19/06/21 00:04:07 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, localhost, 45515, None)
+19/06/21 00:04:07 INFO BlockManagerMasterEndpoint: Registering block manager localhost:45515 with 912.3 MB RAM, BlockManagerId(driver, localhost, 45515, None)
+19/06/21 00:04:07 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, localhost, 45515, None)
+19/06/21 00:04:07 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, localhost, 45515, None)
+19/06/21 00:04:07 INFO SharedState: loading hive config file: file:/home/ubuntu/spark/spark-2.4.0-bin-hadoop2.7/conf/hive-site.xml
+19/06/21 00:04:07 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir ('file:/home/ubuntu/FIFA/spark-warehouse').
+19/06/21 00:04:07 INFO SharedState: Warehouse path is 'file:/home/ubuntu/FIFA/spark-warehouse'.
+19/06/21 00:04:08 INFO StateStoreCoordinatorRef: Registered StateStoreCoordinator endpoint
+19/06/21 00:04:09 INFO HiveUtils: Initializing HiveMetastoreConnection version 1.2.1 using Spark classes.
+19/06/21 00:04:10 INFO HiveMetaStore: 0: Opening raw store with implemenation class:org.apache.hadoop.hive.metastore.ObjectStore
+19/06/21 00:04:10 INFO ObjectStore: ObjectStore, initialize called
+19/06/21 00:04:10 INFO Persistence: Property hive.metastore.integral.jdo.pushdown unknown - will be ignored
+19/06/21 00:04:10 INFO Persistence: Property datanucleus.cache.level2 unknown - will be ignored
+19/06/21 00:04:11 INFO ObjectStore: Setting MetaStore object pin classes with hive.metastore.cache.pinobjtypes="Table,StorageDescriptor,SerDeInfo,Partition,Database,Type,FieldSchema,Order"
+19/06/21 00:04:12 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MFieldSchema" is tagged as "embedded-only" so does not have its own datastore table.
+19/06/21 00:04:12 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MOrder" is tagged as "embedded-only" so does not have its own datastore table.
+19/06/21 00:04:13 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MFieldSchema" is tagged as "embedded-only" so does not have its own datastore table.
+19/06/21 00:04:13 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MOrder" is tagged as "embedded-only" so does not have its own datastore table.
+19/06/21 00:04:13 INFO MetaStoreDirectSql: Using direct SQL, underlying DB is DERBY
+19/06/21 00:04:13 INFO ObjectStore: Initialized ObjectStore
+19/06/21 00:04:13 WARN ObjectStore: Version information not found in metastore. hive.metastore.schema.verification is not enabled so recording the schema version 1.2.0
+19/06/21 00:04:13 WARN ObjectStore: Failed to get database default, returning NoSuchObjectException
+19/06/21 00:04:13 INFO HiveMetaStore: Added admin role in metastore
+19/06/21 00:04:13 INFO HiveMetaStore: Added public role in metastore
+19/06/21 00:04:13 INFO HiveMetaStore: No user is added in admin role, since config is empty
+19/06/21 00:04:13 INFO HiveMetaStore: 0: get_all_databases
+19/06/21 00:04:13 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_all_databases	
+19/06/21 00:04:13 INFO HiveMetaStore: 0: get_functions: db=default pat=*
+19/06/21 00:04:13 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_functions: db=default pat=*	
+19/06/21 00:04:13 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MResourceUri" is tagged as "embedded-only" so does not have its own datastore table.
+19/06/21 00:04:13 INFO SessionState: Created local directory: /tmp/f750668c-7881-466f-a135-b10206b1a3ab_resources
+19/06/21 00:04:13 INFO SessionState: Created HDFS directory: /tmp/hive/ubuntu/f750668c-7881-466f-a135-b10206b1a3ab
+19/06/21 00:04:13 INFO SessionState: Created local directory: /tmp/ubuntu/f750668c-7881-466f-a135-b10206b1a3ab
+19/06/21 00:04:13 INFO SessionState: Created HDFS directory: /tmp/hive/ubuntu/f750668c-7881-466f-a135-b10206b1a3ab/_tmp_space.db
+19/06/21 00:04:13 INFO HiveClientImpl: Warehouse location for Hive client (version 1.2.2) is file:/home/ubuntu/FIFA/spark-warehouse
+19/06/21 00:04:13 INFO HiveMetaStore: 0: get_database: default
+19/06/21 00:04:13 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_database: default	
+19/06/21 00:04:13 INFO HiveMetaStore: 0: get_database: global_temp
+19/06/21 00:04:13 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_database: global_temp	
+19/06/21 00:04:13 WARN ObjectStore: Failed to get database global_temp, returning NoSuchObjectException
+19/06/21 00:04:13 INFO HiveMetaStore: 0: get_database: default
+19/06/21 00:04:13 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_database: default	
+19/06/21 00:04:13 INFO HiveMetaStore: 0: get_database: default
+19/06/21 00:04:13 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_database: default	
+19/06/21 00:04:13 INFO HiveMetaStore: 0: get_tables: db=default pat=*
+19/06/21 00:04:13 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
+19/06/21 00:04:14 INFO SparkContext: Starting job: collect at utils.scala:44
+19/06/21 00:04:14 INFO DAGScheduler: Got job 0 (collect at utils.scala:44) with 1 output partitions
+19/06/21 00:04:14 INFO DAGScheduler: Final stage: ResultStage 0 (collect at utils.scala:44)
+19/06/21 00:04:14 INFO DAGScheduler: Parents of final stage: List()
+19/06/21 00:04:14 INFO DAGScheduler: Missing parents: List()
+19/06/21 00:04:14 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[4] at map at utils.scala:41), which has no missing parents
+19/06/21 00:04:14 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 6.0 KB, free 912.3 MB)
+19/06/21 00:04:14 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 3.4 KB, free 912.3 MB)
+19/06/21 00:04:14 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on localhost:45515 (size: 3.4 KB, free: 912.3 MB)
+19/06/21 00:04:14 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1161
+19/06/21 00:04:14 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[4] at map at utils.scala:41) (first 15 tasks are for partitions Vector(0))
+19/06/21 00:04:14 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks
+19/06/21 00:04:14 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, localhost, executor driver, partition 0, PROCESS_LOCAL, 7893 bytes)
+19/06/21 00:04:14 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+19/06/21 00:04:14 INFO Executor: Fetching spark://localhost:42579/jars/sparklyr-2.3-2.11.jar with timestamp 1561075447420
+19/06/21 00:04:14 INFO TransportClientFactory: Successfully created connection to localhost/127.0.0.1:42579 after 16 ms (0 ms spent in bootstraps)
+19/06/21 00:04:14 INFO Utils: Fetching spark://localhost:42579/jars/sparklyr-2.3-2.11.jar to /tmp/spark-022e17c8-600c-4828-b4e9-2561268e8458/userFiles-4dcaa948-9a0a-452b-bbd8-26aa103eac2d/fetchFileTemp329340827848650834.tmp
+19/06/21 00:04:14 INFO Executor: Adding file:/tmp/spark-022e17c8-600c-4828-b4e9-2561268e8458/userFiles-4dcaa948-9a0a-452b-bbd8-26aa103eac2d/sparklyr-2.3-2.11.jar to class loader
+19/06/21 00:04:14 INFO CodeGenerator: Code generated in 171.875461 ms
+19/06/21 00:04:14 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 970 bytes result sent to driver
+19/06/21 00:04:14 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 427 ms on localhost (executor driver) (1/1)
+19/06/21 00:04:14 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+19/06/21 00:04:14 INFO DAGScheduler: ResultStage 0 (collect at utils.scala:44) finished in 0.559 s
+19/06/21 00:04:14 INFO DAGScheduler: Job 0 finished: collect at utils.scala:44, took 0.630359 s
+19/06/21 00:04:16 WARN Utils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.debug.maxToStringFields' in SparkEnv.conf.
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 20
+19/06/21 00:04:16 INFO BlockManagerInfo: Removed broadcast_0_piece0 on localhost:45515 in memory (size: 3.4 KB, free: 912.3 MB)
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 10
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 12
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 15
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 3
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 2
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 0
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 23
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 13
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 17
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 14
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 6
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 24
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 4
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 11
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 5
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 25
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 16
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 21
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 18
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 9
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 7
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 8
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 22
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 19
+19/06/21 00:04:16 INFO ContextCleaner: Cleaned accumulator 1
+19/06/21 00:04:17 INFO CodeGenerator: Code generated in 23.871581 ms
+19/06/21 00:04:17 INFO CodeGenerator: Code generated in 16.421543 ms
+19/06/21 00:04:17 INFO SparkContext: Starting job: sql at NativeMethodAccessorImpl.java:0
+19/06/21 00:04:17 INFO DAGScheduler: Registering RDD 14 (sql at NativeMethodAccessorImpl.java:0)
+19/06/21 00:04:17 INFO DAGScheduler: Got job 1 (sql at NativeMethodAccessorImpl.java:0) with 1 output partitions
+19/06/21 00:04:17 INFO DAGScheduler: Final stage: ResultStage 2 (sql at NativeMethodAccessorImpl.java:0)
+19/06/21 00:04:17 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 1)
+19/06/21 00:04:17 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 1)
+19/06/21 00:04:17 INFO DAGScheduler: Submitting ShuffleMapStage 1 (MapPartitionsRDD[14] at sql at NativeMethodAccessorImpl.java:0), which has no missing parents
+19/06/21 00:04:17 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 101.6 KB, free 912.2 MB)
+19/06/21 00:04:17 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 33.6 KB, free 912.2 MB)
+19/06/21 00:04:17 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on localhost:45515 (size: 33.6 KB, free: 912.3 MB)
+19/06/21 00:04:17 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1161
+19/06/21 00:04:17 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 1 (MapPartitionsRDD[14] at sql at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+19/06/21 00:04:17 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks
+19/06/21 00:04:17 WARN TaskSetManager: Stage 1 contains a task of very large size (9181 KB). The maximum recommended task size is 100 KB.
+19/06/21 00:04:17 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1, localhost, executor driver, partition 0, PROCESS_LOCAL, 9401457 bytes)
+19/06/21 00:04:17 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
+19/06/21 00:04:17 INFO CodeGenerator: Code generated in 109.00148 ms
+19/06/21 00:04:17 INFO CodeGenerator: Code generated in 248.629624 ms
+19/06/21 00:04:18 INFO ContextCleaner: Cleaned accumulator 27
+19/06/21 00:04:19 INFO MemoryStore: Block rdd_9_0 stored as values in memory (estimated size 4.1 MB, free 908.1 MB)
+19/06/21 00:04:19 INFO BlockManagerInfo: Added rdd_9_0 in memory on localhost:45515 (size: 4.1 MB, free: 908.2 MB)
+19/06/21 00:04:19 INFO CodeGenerator: Code generated in 5.860409 ms
+19/06/21 00:04:19 INFO CodeGenerator: Code generated in 12.887674 ms
+19/06/21 00:04:19 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 1781 bytes result sent to driver
+19/06/21 00:04:19 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 2543 ms on localhost (executor driver) (1/1)
+19/06/21 00:04:19 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+19/06/21 00:04:19 INFO DAGScheduler: ShuffleMapStage 1 (sql at NativeMethodAccessorImpl.java:0) finished in 2.593 s
+19/06/21 00:04:19 INFO DAGScheduler: looking for newly runnable stages
+19/06/21 00:04:19 INFO DAGScheduler: running: Set()
+19/06/21 00:04:19 INFO DAGScheduler: waiting: Set(ResultStage 2)
+19/06/21 00:04:19 INFO DAGScheduler: failed: Set()
+19/06/21 00:04:19 INFO DAGScheduler: Submitting ResultStage 2 (MapPartitionsRDD[17] at sql at NativeMethodAccessorImpl.java:0), which has no missing parents
+19/06/21 00:04:19 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 7.1 KB, free 908.1 MB)
+19/06/21 00:04:19 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 3.8 KB, free 908.1 MB)
+19/06/21 00:04:19 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on localhost:45515 (size: 3.8 KB, free: 908.2 MB)
+19/06/21 00:04:19 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1161
+19/06/21 00:04:19 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 2 (MapPartitionsRDD[17] at sql at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+19/06/21 00:04:19 INFO TaskSchedulerImpl: Adding task set 2.0 with 1 tasks
+19/06/21 00:04:19 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 2, localhost, executor driver, partition 0, NODE_LOCAL, 7767 bytes)
+19/06/21 00:04:19 INFO Executor: Running task 0.0 in stage 2.0 (TID 2)
+19/06/21 00:04:19 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
+19/06/21 00:04:19 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 6 ms
+19/06/21 00:04:19 INFO Executor: Finished task 0.0 in stage 2.0 (TID 2). 1825 bytes result sent to driver
+19/06/21 00:04:19 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 2) in 37 ms on localhost (executor driver) (1/1)
+19/06/21 00:04:19 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool 
+19/06/21 00:04:19 INFO DAGScheduler: ResultStage 2 (sql at NativeMethodAccessorImpl.java:0) finished in 0.047 s
+19/06/21 00:04:19 INFO DAGScheduler: Job 1 finished: sql at NativeMethodAccessorImpl.java:0, took 2.673531 s
+19/06/21 00:04:19 INFO CodeGenerator: Code generated in 5.80163 ms
+19/06/21 00:04:19 INFO SparkContext: Starting job: collect at utils.scala:204
+19/06/21 00:04:19 INFO DAGScheduler: Registering RDD 22 (collect at utils.scala:204)
+19/06/21 00:04:19 INFO DAGScheduler: Got job 2 (collect at utils.scala:204) with 1 output partitions
+19/06/21 00:04:19 INFO DAGScheduler: Final stage: ResultStage 4 (collect at utils.scala:204)
+19/06/21 00:04:19 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 3)
+19/06/21 00:04:19 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 3)
+19/06/21 00:04:19 INFO DAGScheduler: Submitting ShuffleMapStage 3 (MapPartitionsRDD[22] at collect at utils.scala:204), which has no missing parents
+19/06/21 00:04:19 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 101.6 KB, free 908.0 MB)
+19/06/21 00:04:19 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 33.6 KB, free 907.9 MB)
+19/06/21 00:04:19 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on localhost:45515 (size: 33.6 KB, free: 908.1 MB)
+19/06/21 00:04:19 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1161
+19/06/21 00:04:19 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 3 (MapPartitionsRDD[22] at collect at utils.scala:204) (first 15 tasks are for partitions Vector(0))
+19/06/21 00:04:19 INFO TaskSchedulerImpl: Adding task set 3.0 with 1 tasks
+19/06/21 00:04:20 WARN TaskSetManager: Stage 3 contains a task of very large size (9181 KB). The maximum recommended task size is 100 KB.
+19/06/21 00:04:20 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 3, localhost, executor driver, partition 0, PROCESS_LOCAL, 9401457 bytes)
+19/06/21 00:04:20 INFO Executor: Running task 0.0 in stage 3.0 (TID 3)
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 34
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 30
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 35
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 77
+19/06/21 00:04:20 INFO BlockManagerInfo: Removed broadcast_1_piece0 on localhost:45515 in memory (size: 33.6 KB, free: 908.2 MB)
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 46
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 82
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 28
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 90
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 81
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 57
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 75
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 60
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 40
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 54
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 74
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 86
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 42
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 55
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 32
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 91
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 58
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 70
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 56
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 69
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 92
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 93
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 47
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 84
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 48
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 67
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 79
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 50
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 66
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 45
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 94
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 72
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 73
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 85
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 29
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 53
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 36
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned shuffle 0
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 59
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 71
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 51
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 76
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 38
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 80
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 31
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 52
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 78
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 65
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 88
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 44
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 68
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 37
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 49
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 61
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 62
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 41
+19/06/21 00:04:20 INFO BlockManager: Found block rdd_9_0 locally
+19/06/21 00:04:20 INFO BlockManagerInfo: Removed broadcast_2_piece0 on localhost:45515 in memory (size: 3.8 KB, free: 908.2 MB)
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 39
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 33
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 83
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 87
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 89
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 63
+19/06/21 00:04:20 INFO ContextCleaner: Cleaned accumulator 64
+19/06/21 00:04:20 INFO Executor: Finished task 0.0 in stage 3.0 (TID 3). 1824 bytes result sent to driver
+19/06/21 00:04:20 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 3) in 184 ms on localhost (executor driver) (1/1)
+19/06/21 00:04:20 INFO TaskSchedulerImpl: Removed TaskSet 3.0, whose tasks have all completed, from pool 
+19/06/21 00:04:20 INFO DAGScheduler: ShuffleMapStage 3 (collect at utils.scala:204) finished in 0.204 s
+19/06/21 00:04:20 INFO DAGScheduler: looking for newly runnable stages
+19/06/21 00:04:20 INFO DAGScheduler: running: Set()
+19/06/21 00:04:20 INFO DAGScheduler: waiting: Set(ResultStage 4)
+19/06/21 00:04:20 INFO DAGScheduler: failed: Set()
+19/06/21 00:04:20 INFO DAGScheduler: Submitting ResultStage 4 (MapPartitionsRDD[25] at collect at utils.scala:204), which has no missing parents
+19/06/21 00:04:20 INFO MemoryStore: Block broadcast_4 stored as values in memory (estimated size 7.1 KB, free 908.1 MB)
+19/06/21 00:04:20 INFO MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 3.8 KB, free 908.1 MB)
+19/06/21 00:04:20 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on localhost:45515 (size: 3.8 KB, free: 908.2 MB)
+19/06/21 00:04:20 INFO SparkContext: Created broadcast 4 from broadcast at DAGScheduler.scala:1161
+19/06/21 00:04:20 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 4 (MapPartitionsRDD[25] at collect at utils.scala:204) (first 15 tasks are for partitions Vector(0))
+19/06/21 00:04:20 INFO TaskSchedulerImpl: Adding task set 4.0 with 1 tasks
+19/06/21 00:04:20 INFO TaskSetManager: Starting task 0.0 in stage 4.0 (TID 4, localhost, executor driver, partition 0, NODE_LOCAL, 7767 bytes)
+19/06/21 00:04:20 INFO Executor: Running task 0.0 in stage 4.0 (TID 4)
+19/06/21 00:04:20 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
+19/06/21 00:04:20 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+19/06/21 00:04:20 INFO Executor: Finished task 0.0 in stage 4.0 (TID 4). 1782 bytes result sent to driver
+19/06/21 00:04:20 INFO TaskSetManager: Finished task 0.0 in stage 4.0 (TID 4) in 5 ms on localhost (executor driver) (1/1)
+19/06/21 00:04:20 INFO TaskSchedulerImpl: Removed TaskSet 4.0, whose tasks have all completed, from pool 
+19/06/21 00:04:20 INFO DAGScheduler: ResultStage 4 (collect at utils.scala:204) finished in 0.011 s
+19/06/21 00:04:20 INFO DAGScheduler: Job 2 finished: collect at utils.scala:204, took 0.220948 s
+19/06/21 00:04:20 INFO HiveMetaStore: 0: get_database: default
+19/06/21 00:04:20 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_database: default	
+19/06/21 00:04:20 INFO HiveMetaStore: 0: get_database: default
+19/06/21 00:04:20 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_database: default	
+19/06/21 00:04:20 INFO HiveMetaStore: 0: get_tables: db=default pat=*
+19/06/21 00:04:20 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
+19/06/21 00:04:20 INFO CodeGenerator: Code generated in 6.412662 ms
+19/06/21 00:04:21 INFO HiveMetaStore: 0: get_database: default
+19/06/21 00:04:21 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_database: default	
+19/06/21 00:04:21 INFO HiveMetaStore: 0: get_database: default
+19/06/21 00:04:21 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_database: default	
+19/06/21 00:04:21 INFO HiveMetaStore: 0: get_tables: db=default pat=*
+19/06/21 00:04:21 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 137
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 150
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 129
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 131
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 145
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 158
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 142
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 98
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 123
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 138
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 118
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 139
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 109
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 119
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 113
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 97
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 101
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 105
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 147
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 96
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 157
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 120
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned shuffle 1
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 133
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 104
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 103
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 114
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 102
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 146
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 128
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 152
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 108
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 140
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 155
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 135
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 117
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 151
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 111
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 132
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 136
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 112
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 153
+19/06/21 00:34:07 INFO BlockManagerInfo: Removed broadcast_3_piece0 on localhost:45515 in memory (size: 33.6 KB, free: 908.2 MB)
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 95
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 144
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 149
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 159
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 110
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 148
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 126
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 141
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 143
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 154
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 116
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 127
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 122
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 134
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 156
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 125
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 106
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 124
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 115
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 100
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 107
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 121
+19/06/21 00:34:07 INFO BlockManagerInfo: Removed broadcast_4_piece0 on localhost:45515 in memory (size: 3.8 KB, free: 908.2 MB)
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 130
+19/06/21 00:34:07 INFO ContextCleaner: Cleaned accumulator 99
+19/06/21 01:27:28 INFO HiveMetaStore: 0: get_database: default
+19/06/21 01:27:28 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_database: default	
+19/06/21 01:27:28 INFO HiveMetaStore: 0: get_database: default
+19/06/21 01:27:28 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_database: default	
+19/06/21 01:27:28 INFO HiveMetaStore: 0: get_tables: db=default pat=*
+19/06/21 01:27:28 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
+19/06/21 01:27:28 INFO CodeGenerator: Code generated in 8.145482 ms
+19/06/21 01:27:28 INFO SparkContext: Starting job: collect at utils.scala:44
+19/06/21 01:27:28 INFO DAGScheduler: Got job 3 (collect at utils.scala:44) with 1 output partitions
+19/06/21 01:27:28 INFO DAGScheduler: Final stage: ResultStage 5 (collect at utils.scala:44)
+19/06/21 01:27:28 INFO DAGScheduler: Parents of final stage: List()
+19/06/21 01:27:28 INFO DAGScheduler: Missing parents: List()
+19/06/21 01:27:28 INFO DAGScheduler: Submitting ResultStage 5 (MapPartitionsRDD[30] at map at utils.scala:41), which has no missing parents
+19/06/21 01:27:28 INFO MemoryStore: Block broadcast_5 stored as values in memory (estimated size 6.0 KB, free 908.2 MB)
+19/06/21 01:27:28 INFO MemoryStore: Block broadcast_5_piece0 stored as bytes in memory (estimated size 3.4 KB, free 908.2 MB)
+19/06/21 01:27:28 INFO BlockManagerInfo: Added broadcast_5_piece0 in memory on localhost:45515 (size: 3.4 KB, free: 908.2 MB)
+19/06/21 01:27:28 INFO SparkContext: Created broadcast 5 from broadcast at DAGScheduler.scala:1161
+19/06/21 01:27:28 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 5 (MapPartitionsRDD[30] at map at utils.scala:41) (first 15 tasks are for partitions Vector(0))
+19/06/21 01:27:28 INFO TaskSchedulerImpl: Adding task set 5.0 with 1 tasks
+19/06/21 01:27:28 INFO TaskSetManager: Starting task 0.0 in stage 5.0 (TID 5, localhost, executor driver, partition 0, PROCESS_LOCAL, 8052 bytes)
+19/06/21 01:27:28 INFO Executor: Running task 0.0 in stage 5.0 (TID 5)
+19/06/21 01:27:28 INFO Executor: Finished task 0.0 in stage 5.0 (TID 5). 977 bytes result sent to driver
+19/06/21 01:27:28 INFO TaskSetManager: Finished task 0.0 in stage 5.0 (TID 5) in 14 ms on localhost (executor driver) (1/1)
+19/06/21 01:27:28 INFO TaskSchedulerImpl: Removed TaskSet 5.0, whose tasks have all completed, from pool 
+19/06/21 01:27:28 INFO DAGScheduler: ResultStage 5 (collect at utils.scala:44) finished in 0.029 s
+19/06/21 01:27:28 INFO DAGScheduler: Job 3 finished: collect at utils.scala:44, took 0.033203 s
+19/06/21 01:27:28 INFO MapPartitionsRDD: Removing RDD 9 from persistence list
+19/06/21 01:27:28 INFO BlockManager: Removing RDD 9
+19/06/21 01:27:29 INFO SparkContext: Starting job: sql at NativeMethodAccessorImpl.java:0
+19/06/21 01:27:29 INFO DAGScheduler: Registering RDD 40 (sql at NativeMethodAccessorImpl.java:0)
+19/06/21 01:27:29 INFO DAGScheduler: Got job 4 (sql at NativeMethodAccessorImpl.java:0) with 1 output partitions
+19/06/21 01:27:29 INFO DAGScheduler: Final stage: ResultStage 7 (sql at NativeMethodAccessorImpl.java:0)
+19/06/21 01:27:29 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 6)
+19/06/21 01:27:29 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 6)
+19/06/21 01:27:29 INFO DAGScheduler: Submitting ShuffleMapStage 6 (MapPartitionsRDD[40] at sql at NativeMethodAccessorImpl.java:0), which has no missing parents
+19/06/21 01:27:29 INFO MemoryStore: Block broadcast_6 stored as values in memory (estimated size 101.6 KB, free 912.2 MB)
+19/06/21 01:27:29 INFO MemoryStore: Block broadcast_6_piece0 stored as bytes in memory (estimated size 33.5 KB, free 912.2 MB)
+19/06/21 01:27:29 INFO BlockManagerInfo: Added broadcast_6_piece0 in memory on localhost:45515 (size: 33.5 KB, free: 912.3 MB)
+19/06/21 01:27:29 INFO SparkContext: Created broadcast 6 from broadcast at DAGScheduler.scala:1161
+19/06/21 01:27:29 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 6 (MapPartitionsRDD[40] at sql at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+19/06/21 01:27:29 INFO TaskSchedulerImpl: Adding task set 6.0 with 1 tasks
+19/06/21 01:27:29 WARN TaskSetManager: Stage 6 contains a task of very large size (2230 KB). The maximum recommended task size is 100 KB.
+19/06/21 01:27:29 INFO TaskSetManager: Starting task 0.0 in stage 6.0 (TID 6, localhost, executor driver, partition 0, PROCESS_LOCAL, 2283787 bytes)
+19/06/21 01:27:29 INFO Executor: Running task 0.0 in stage 6.0 (TID 6)
+19/06/21 01:27:30 INFO MemoryStore: Block rdd_35_0 stored as values in memory (estimated size 1014.3 KB, free 911.2 MB)
+19/06/21 01:27:30 INFO BlockManagerInfo: Added rdd_35_0 in memory on localhost:45515 (size: 1014.3 KB, free: 911.3 MB)
+19/06/21 01:27:30 INFO Executor: Finished task 0.0 in stage 6.0 (TID 6). 1695 bytes result sent to driver
+19/06/21 01:27:30 INFO TaskSetManager: Finished task 0.0 in stage 6.0 (TID 6) in 392 ms on localhost (executor driver) (1/1)
+19/06/21 01:27:30 INFO TaskSchedulerImpl: Removed TaskSet 6.0, whose tasks have all completed, from pool 
+19/06/21 01:27:30 INFO DAGScheduler: ShuffleMapStage 6 (sql at NativeMethodAccessorImpl.java:0) finished in 0.413 s
+19/06/21 01:27:30 INFO DAGScheduler: looking for newly runnable stages
+19/06/21 01:27:30 INFO DAGScheduler: running: Set()
+19/06/21 01:27:30 INFO DAGScheduler: waiting: Set(ResultStage 7)
+19/06/21 01:27:30 INFO DAGScheduler: failed: Set()
+19/06/21 01:27:30 INFO DAGScheduler: Submitting ResultStage 7 (MapPartitionsRDD[43] at sql at NativeMethodAccessorImpl.java:0), which has no missing parents
+19/06/21 01:27:30 INFO MemoryStore: Block broadcast_7 stored as values in memory (estimated size 7.1 KB, free 911.2 MB)
+19/06/21 01:27:30 INFO MemoryStore: Block broadcast_7_piece0 stored as bytes in memory (estimated size 3.8 KB, free 911.2 MB)
+19/06/21 01:27:30 INFO BlockManagerInfo: Added broadcast_7_piece0 in memory on localhost:45515 (size: 3.8 KB, free: 911.3 MB)
+19/06/21 01:27:30 INFO SparkContext: Created broadcast 7 from broadcast at DAGScheduler.scala:1161
+19/06/21 01:27:30 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 7 (MapPartitionsRDD[43] at sql at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+19/06/21 01:27:30 INFO TaskSchedulerImpl: Adding task set 7.0 with 1 tasks
+19/06/21 01:27:30 INFO TaskSetManager: Starting task 0.0 in stage 7.0 (TID 7, localhost, executor driver, partition 0, NODE_LOCAL, 7767 bytes)
+19/06/21 01:27:30 INFO Executor: Running task 0.0 in stage 7.0 (TID 7)
+19/06/21 01:27:30 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
+19/06/21 01:27:30 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+19/06/21 01:27:30 INFO Executor: Finished task 0.0 in stage 7.0 (TID 7). 1825 bytes result sent to driver
+19/06/21 01:27:30 INFO TaskSetManager: Finished task 0.0 in stage 7.0 (TID 7) in 11 ms on localhost (executor driver) (1/1)
+19/06/21 01:27:30 INFO TaskSchedulerImpl: Removed TaskSet 7.0, whose tasks have all completed, from pool 
+19/06/21 01:27:30 INFO DAGScheduler: ResultStage 7 (sql at NativeMethodAccessorImpl.java:0) finished in 0.016 s
+19/06/21 01:27:30 INFO DAGScheduler: Job 4 finished: sql at NativeMethodAccessorImpl.java:0, took 0.433847 s
+19/06/21 01:27:30 INFO SparkContext: Starting job: collect at utils.scala:204
+19/06/21 01:27:30 INFO DAGScheduler: Registering RDD 48 (collect at utils.scala:204)
+19/06/21 01:27:30 INFO DAGScheduler: Got job 5 (collect at utils.scala:204) with 1 output partitions
+19/06/21 01:27:30 INFO DAGScheduler: Final stage: ResultStage 9 (collect at utils.scala:204)
+19/06/21 01:27:30 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 8)
+19/06/21 01:27:30 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 8)
+19/06/21 01:27:30 INFO DAGScheduler: Submitting ShuffleMapStage 8 (MapPartitionsRDD[48] at collect at utils.scala:204), which has no missing parents
+19/06/21 01:27:30 INFO MemoryStore: Block broadcast_8 stored as values in memory (estimated size 101.6 KB, free 911.1 MB)
+19/06/21 01:27:30 INFO MemoryStore: Block broadcast_8_piece0 stored as bytes in memory (estimated size 33.6 KB, free 911.0 MB)
+19/06/21 01:27:30 INFO BlockManagerInfo: Added broadcast_8_piece0 in memory on localhost:45515 (size: 33.6 KB, free: 911.2 MB)
+19/06/21 01:27:30 INFO SparkContext: Created broadcast 8 from broadcast at DAGScheduler.scala:1161
+19/06/21 01:27:30 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 8 (MapPartitionsRDD[48] at collect at utils.scala:204) (first 15 tasks are for partitions Vector(0))
+19/06/21 01:27:30 INFO TaskSchedulerImpl: Adding task set 8.0 with 1 tasks
+19/06/21 01:27:30 WARN TaskSetManager: Stage 8 contains a task of very large size (2230 KB). The maximum recommended task size is 100 KB.
+19/06/21 01:27:30 INFO TaskSetManager: Starting task 0.0 in stage 8.0 (TID 8, localhost, executor driver, partition 0, PROCESS_LOCAL, 2283787 bytes)
+19/06/21 01:27:30 INFO Executor: Running task 0.0 in stage 8.0 (TID 8)
+19/06/21 01:27:30 INFO BlockManager: Found block rdd_35_0 locally
+19/06/21 01:27:30 INFO Executor: Finished task 0.0 in stage 8.0 (TID 8). 1781 bytes result sent to driver
+19/06/21 01:27:30 INFO TaskSetManager: Finished task 0.0 in stage 8.0 (TID 8) in 32 ms on localhost (executor driver) (1/1)
+19/06/21 01:27:30 INFO TaskSchedulerImpl: Removed TaskSet 8.0, whose tasks have all completed, from pool 
+19/06/21 01:27:30 INFO DAGScheduler: ShuffleMapStage 8 (collect at utils.scala:204) finished in 0.040 s
+19/06/21 01:27:30 INFO DAGScheduler: looking for newly runnable stages
+19/06/21 01:27:30 INFO DAGScheduler: running: Set()
+19/06/21 01:27:30 INFO DAGScheduler: waiting: Set(ResultStage 9)
+19/06/21 01:27:30 INFO DAGScheduler: failed: Set()
+19/06/21 01:27:30 INFO DAGScheduler: Submitting ResultStage 9 (MapPartitionsRDD[51] at collect at utils.scala:204), which has no missing parents
+19/06/21 01:27:30 INFO MemoryStore: Block broadcast_9 stored as values in memory (estimated size 7.1 KB, free 911.0 MB)
+19/06/21 01:27:30 INFO MemoryStore: Block broadcast_9_piece0 stored as bytes in memory (estimated size 3.8 KB, free 911.0 MB)
+19/06/21 01:27:30 INFO BlockManagerInfo: Added broadcast_9_piece0 in memory on localhost:45515 (size: 3.8 KB, free: 911.2 MB)
+19/06/21 01:27:30 INFO SparkContext: Created broadcast 9 from broadcast at DAGScheduler.scala:1161
+19/06/21 01:27:30 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 9 (MapPartitionsRDD[51] at collect at utils.scala:204) (first 15 tasks are for partitions Vector(0))
+19/06/21 01:27:30 INFO TaskSchedulerImpl: Adding task set 9.0 with 1 tasks
+19/06/21 01:27:30 INFO TaskSetManager: Starting task 0.0 in stage 9.0 (TID 9, localhost, executor driver, partition 0, NODE_LOCAL, 7767 bytes)
+19/06/21 01:27:30 INFO Executor: Running task 0.0 in stage 9.0 (TID 9)
+19/06/21 01:27:30 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
+19/06/21 01:27:30 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+19/06/21 01:27:30 INFO Executor: Finished task 0.0 in stage 9.0 (TID 9). 1782 bytes result sent to driver
+19/06/21 01:27:30 INFO TaskSetManager: Finished task 0.0 in stage 9.0 (TID 9) in 5 ms on localhost (executor driver) (1/1)
+19/06/21 01:27:30 INFO TaskSchedulerImpl: Removed TaskSet 9.0, whose tasks have all completed, from pool 
+19/06/21 01:27:30 INFO DAGScheduler: ResultStage 9 (collect at utils.scala:204) finished in 0.009 s
+19/06/21 01:27:30 INFO DAGScheduler: Job 5 finished: collect at utils.scala:204, took 0.053224 s
+19/06/21 01:27:31 INFO HiveMetaStore: 0: get_database: default
+19/06/21 01:27:31 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_database: default	
+19/06/21 01:27:31 INFO HiveMetaStore: 0: get_database: default
+19/06/21 01:27:31 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_database: default	
+19/06/21 01:27:31 INFO HiveMetaStore: 0: get_tables: db=default pat=*
+19/06/21 01:27:31 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
+19/06/21 01:27:31 INFO HiveMetaStore: 0: get_database: default
+19/06/21 01:27:31 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_database: default	
+19/06/21 01:27:31 INFO HiveMetaStore: 0: get_database: default
+19/06/21 01:27:31 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_database: default	
+19/06/21 01:27:31 INFO HiveMetaStore: 0: get_tables: db=default pat=*
+19/06/21 01:27:31 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
+19/06/21 01:27:31 INFO HiveMetaStore: 0: get_database: default
+19/06/21 01:27:31 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_database: default	
+19/06/21 01:27:31 INFO HiveMetaStore: 0: get_database: default
+19/06/21 01:27:31 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_database: default	
+19/06/21 01:27:31 INFO HiveMetaStore: 0: get_tables: db=default pat=*
+19/06/21 01:27:31 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
+19/06/21 01:34:07 INFO BlockManager: Removing RDD 9
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned RDD 9
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 218
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned shuffle 3
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 308
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 247
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 240
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 234
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 263
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 235
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 228
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 300
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 231
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 294
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 206
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 271
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 282
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 216
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 262
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 288
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 172
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 305
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 302
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 244
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 175
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 161
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 257
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 310
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 217
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 245
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 187
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 164
+19/06/21 01:34:07 INFO BlockManagerInfo: Removed broadcast_9_piece0 on localhost:45515 in memory (size: 3.8 KB, free: 911.2 MB)
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 304
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 318
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 222
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 224
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 201
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 215
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 290
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 177
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 160
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 301
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 238
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 181
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 199
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 265
+19/06/21 01:34:07 INFO BlockManagerInfo: Removed broadcast_6_piece0 on localhost:45515 in memory (size: 33.5 KB, free: 911.3 MB)
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 200
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 220
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 317
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 286
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 190
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 276
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 303
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 252
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 283
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 284
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 227
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 259
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 248
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 249
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 297
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 193
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 192
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 312
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 239
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 173
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 299
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 246
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 196
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 163
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 191
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 267
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 289
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 243
+19/06/21 01:34:07 INFO BlockManagerInfo: Removed broadcast_5_piece0 on localhost:45515 in memory (size: 3.4 KB, free: 911.3 MB)
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 278
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 169
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 280
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 171
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 287
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 295
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 319
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 198
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 194
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 258
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 256
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 313
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 174
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 197
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 213
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 242
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 264
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 307
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 261
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 176
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 205
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 168
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 255
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 166
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 268
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 293
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 188
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 316
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 223
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 179
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 250
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 185
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 272
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 189
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 183
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 309
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 209
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 229
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 274
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 233
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 237
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 204
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 225
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 311
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 260
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 296
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 285
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 306
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 291
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 182
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 219
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 253
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 167
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 212
+19/06/21 01:34:07 INFO BlockManagerInfo: Removed broadcast_7_piece0 on localhost:45515 in memory (size: 3.8 KB, free: 911.3 MB)
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 314
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 208
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 230
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 210
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 277
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned shuffle 2
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 180
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 281
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 254
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 279
+19/06/21 01:34:07 INFO BlockManagerInfo: Removed broadcast_8_piece0 on localhost:45515 in memory (size: 33.6 KB, free: 911.3 MB)
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 221
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 202
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 241
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 273
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 165
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 232
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 207
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 195
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 315
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 251
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 266
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 298
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 275
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 162
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 236
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 270
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 214
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 211
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 170
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 178
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 292
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 184
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 269
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 226
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 26
+19/06/21 01:34:07 INFO ContextCleaner: Cleaned accumulator 43
+19/06/21 07:19:34 INFO HiveMetaStore: 0: get_database: default
+19/06/21 07:19:34 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_database: default	
+19/06/21 07:19:34 INFO HiveMetaStore: 0: get_database: default
+19/06/21 07:19:34 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_database: default	
+19/06/21 07:19:34 INFO HiveMetaStore: 0: get_tables: db=default pat=*
+19/06/21 07:19:34 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
+19/06/21 07:19:34 INFO SparkContext: Starting job: collect at utils.scala:44
+19/06/21 07:19:34 INFO DAGScheduler: Got job 6 (collect at utils.scala:44) with 1 output partitions
+19/06/21 07:19:34 INFO DAGScheduler: Final stage: ResultStage 10 (collect at utils.scala:44)
+19/06/21 07:19:34 INFO DAGScheduler: Parents of final stage: List()
+19/06/21 07:19:34 INFO DAGScheduler: Missing parents: List()
+19/06/21 07:19:34 INFO DAGScheduler: Submitting ResultStage 10 (MapPartitionsRDD[56] at map at utils.scala:41), which has no missing parents
+19/06/21 07:19:34 INFO MemoryStore: Block broadcast_10 stored as values in memory (estimated size 6.0 KB, free 911.3 MB)
+19/06/21 07:19:34 INFO MemoryStore: Block broadcast_10_piece0 stored as bytes in memory (estimated size 3.4 KB, free 911.3 MB)
+19/06/21 07:19:34 INFO BlockManagerInfo: Added broadcast_10_piece0 in memory on localhost:45515 (size: 3.4 KB, free: 911.3 MB)
+19/06/21 07:19:34 INFO SparkContext: Created broadcast 10 from broadcast at DAGScheduler.scala:1161
+19/06/21 07:19:34 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 10 (MapPartitionsRDD[56] at map at utils.scala:41) (first 15 tasks are for partitions Vector(0))
+19/06/21 07:19:34 INFO TaskSchedulerImpl: Adding task set 10.0 with 1 tasks
+19/06/21 07:19:34 INFO TaskSetManager: Starting task 0.0 in stage 10.0 (TID 10, localhost, executor driver, partition 0, PROCESS_LOCAL, 8052 bytes)
+19/06/21 07:19:34 INFO Executor: Running task 0.0 in stage 10.0 (TID 10)
+19/06/21 07:19:34 INFO Executor: Finished task 0.0 in stage 10.0 (TID 10). 1020 bytes result sent to driver
+19/06/21 07:19:34 INFO TaskSetManager: Finished task 0.0 in stage 10.0 (TID 10) in 12 ms on localhost (executor driver) (1/1)
+19/06/21 07:19:34 INFO TaskSchedulerImpl: Removed TaskSet 10.0, whose tasks have all completed, from pool 
+19/06/21 07:19:34 INFO DAGScheduler: ResultStage 10 (collect at utils.scala:44) finished in 0.024 s
+19/06/21 07:19:34 INFO DAGScheduler: Job 6 finished: collect at utils.scala:44, took 0.026410 s
+19/06/21 07:19:34 INFO MapPartitionsRDD: Removing RDD 35 from persistence list
+19/06/21 07:19:34 INFO BlockManager: Removing RDD 35
+19/06/21 07:19:34 INFO SparkContext: Starting job: sql at NativeMethodAccessorImpl.java:0
+19/06/21 07:19:34 INFO DAGScheduler: Registering RDD 66 (sql at NativeMethodAccessorImpl.java:0)
+19/06/21 07:19:34 INFO DAGScheduler: Got job 7 (sql at NativeMethodAccessorImpl.java:0) with 1 output partitions
+19/06/21 07:19:34 INFO DAGScheduler: Final stage: ResultStage 12 (sql at NativeMethodAccessorImpl.java:0)
+19/06/21 07:19:34 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 11)
+19/06/21 07:19:34 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 11)
+19/06/21 07:19:34 INFO DAGScheduler: Submitting ShuffleMapStage 11 (MapPartitionsRDD[66] at sql at NativeMethodAccessorImpl.java:0), which has no missing parents
+19/06/21 07:19:34 INFO MemoryStore: Block broadcast_11 stored as values in memory (estimated size 101.6 KB, free 912.2 MB)
+19/06/21 07:19:34 INFO MemoryStore: Block broadcast_11_piece0 stored as bytes in memory (estimated size 33.5 KB, free 912.2 MB)
+19/06/21 07:19:34 INFO BlockManagerInfo: Added broadcast_11_piece0 in memory on localhost:45515 (size: 33.5 KB, free: 912.3 MB)
+19/06/21 07:19:34 INFO SparkContext: Created broadcast 11 from broadcast at DAGScheduler.scala:1161
+19/06/21 07:19:34 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 11 (MapPartitionsRDD[66] at sql at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+19/06/21 07:19:34 INFO TaskSchedulerImpl: Adding task set 11.0 with 1 tasks
+19/06/21 07:19:34 WARN TaskSetManager: Stage 11 contains a task of very large size (2230 KB). The maximum recommended task size is 100 KB.
+19/06/21 07:19:34 INFO TaskSetManager: Starting task 0.0 in stage 11.0 (TID 11, localhost, executor driver, partition 0, PROCESS_LOCAL, 2283787 bytes)
+19/06/21 07:19:34 INFO Executor: Running task 0.0 in stage 11.0 (TID 11)
+19/06/21 07:19:35 INFO MemoryStore: Block rdd_61_0 stored as values in memory (estimated size 1014.3 KB, free 911.2 MB)
+19/06/21 07:19:35 INFO BlockManagerInfo: Added rdd_61_0 in memory on localhost:45515 (size: 1014.3 KB, free: 911.3 MB)
+19/06/21 07:19:35 INFO Executor: Finished task 0.0 in stage 11.0 (TID 11). 1695 bytes result sent to driver
+19/06/21 07:19:35 INFO TaskSetManager: Finished task 0.0 in stage 11.0 (TID 11) in 281 ms on localhost (executor driver) (1/1)
+19/06/21 07:19:35 INFO TaskSchedulerImpl: Removed TaskSet 11.0, whose tasks have all completed, from pool 
+19/06/21 07:19:35 INFO DAGScheduler: ShuffleMapStage 11 (sql at NativeMethodAccessorImpl.java:0) finished in 0.297 s
+19/06/21 07:19:35 INFO DAGScheduler: looking for newly runnable stages
+19/06/21 07:19:35 INFO DAGScheduler: running: Set()
+19/06/21 07:19:35 INFO DAGScheduler: waiting: Set(ResultStage 12)
+19/06/21 07:19:35 INFO DAGScheduler: failed: Set()
+19/06/21 07:19:35 INFO DAGScheduler: Submitting ResultStage 12 (MapPartitionsRDD[69] at sql at NativeMethodAccessorImpl.java:0), which has no missing parents
+19/06/21 07:19:35 INFO MemoryStore: Block broadcast_12 stored as values in memory (estimated size 7.1 KB, free 911.2 MB)
+19/06/21 07:19:35 INFO MemoryStore: Block broadcast_12_piece0 stored as bytes in memory (estimated size 3.8 KB, free 911.2 MB)
+19/06/21 07:19:35 INFO BlockManagerInfo: Added broadcast_12_piece0 in memory on localhost:45515 (size: 3.8 KB, free: 911.3 MB)
+19/06/21 07:19:35 INFO SparkContext: Created broadcast 12 from broadcast at DAGScheduler.scala:1161
+19/06/21 07:19:35 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 12 (MapPartitionsRDD[69] at sql at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+19/06/21 07:19:35 INFO TaskSchedulerImpl: Adding task set 12.0 with 1 tasks
+19/06/21 07:19:35 INFO TaskSetManager: Starting task 0.0 in stage 12.0 (TID 12, localhost, executor driver, partition 0, NODE_LOCAL, 7767 bytes)
+19/06/21 07:19:35 INFO Executor: Running task 0.0 in stage 12.0 (TID 12)
+19/06/21 07:19:35 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
+19/06/21 07:19:35 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+19/06/21 07:19:35 INFO Executor: Finished task 0.0 in stage 12.0 (TID 12). 1782 bytes result sent to driver
+19/06/21 07:19:35 INFO TaskSetManager: Finished task 0.0 in stage 12.0 (TID 12) in 5 ms on localhost (executor driver) (1/1)
+19/06/21 07:19:35 INFO TaskSchedulerImpl: Removed TaskSet 12.0, whose tasks have all completed, from pool 
+19/06/21 07:19:35 INFO DAGScheduler: ResultStage 12 (sql at NativeMethodAccessorImpl.java:0) finished in 0.010 s
+19/06/21 07:19:35 INFO DAGScheduler: Job 7 finished: sql at NativeMethodAccessorImpl.java:0, took 0.309824 s
+19/06/21 07:19:35 INFO SparkContext: Starting job: collect at utils.scala:204
+19/06/21 07:19:35 INFO DAGScheduler: Registering RDD 74 (collect at utils.scala:204)
+19/06/21 07:19:35 INFO DAGScheduler: Got job 8 (collect at utils.scala:204) with 1 output partitions
+19/06/21 07:19:35 INFO DAGScheduler: Final stage: ResultStage 14 (collect at utils.scala:204)
+19/06/21 07:19:35 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 13)
+19/06/21 07:19:35 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 13)
+19/06/21 07:19:35 INFO DAGScheduler: Submitting ShuffleMapStage 13 (MapPartitionsRDD[74] at collect at utils.scala:204), which has no missing parents
+19/06/21 07:19:35 INFO MemoryStore: Block broadcast_13 stored as values in memory (estimated size 101.6 KB, free 911.1 MB)
+19/06/21 07:19:35 INFO MemoryStore: Block broadcast_13_piece0 stored as bytes in memory (estimated size 33.5 KB, free 911.0 MB)
+19/06/21 07:19:35 INFO BlockManagerInfo: Added broadcast_13_piece0 in memory on localhost:45515 (size: 33.5 KB, free: 911.2 MB)
+19/06/21 07:19:35 INFO SparkContext: Created broadcast 13 from broadcast at DAGScheduler.scala:1161
+19/06/21 07:19:35 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 13 (MapPartitionsRDD[74] at collect at utils.scala:204) (first 15 tasks are for partitions Vector(0))
+19/06/21 07:19:35 INFO TaskSchedulerImpl: Adding task set 13.0 with 1 tasks
+19/06/21 07:19:35 WARN TaskSetManager: Stage 13 contains a task of very large size (2230 KB). The maximum recommended task size is 100 KB.
+19/06/21 07:19:35 INFO TaskSetManager: Starting task 0.0 in stage 13.0 (TID 13, localhost, executor driver, partition 0, PROCESS_LOCAL, 2283787 bytes)
+19/06/21 07:19:35 INFO Executor: Running task 0.0 in stage 13.0 (TID 13)
+19/06/21 07:19:35 INFO BlockManager: Found block rdd_61_0 locally
+19/06/21 07:19:35 INFO Executor: Finished task 0.0 in stage 13.0 (TID 13). 1781 bytes result sent to driver
+19/06/21 07:19:35 INFO TaskSetManager: Finished task 0.0 in stage 13.0 (TID 13) in 38 ms on localhost (executor driver) (1/1)
+19/06/21 07:19:35 INFO TaskSchedulerImpl: Removed TaskSet 13.0, whose tasks have all completed, from pool 
+19/06/21 07:19:35 INFO DAGScheduler: ShuffleMapStage 13 (collect at utils.scala:204) finished in 0.047 s
+19/06/21 07:19:35 INFO DAGScheduler: looking for newly runnable stages
+19/06/21 07:19:35 INFO DAGScheduler: running: Set()
+19/06/21 07:19:35 INFO DAGScheduler: waiting: Set(ResultStage 14)
+19/06/21 07:19:35 INFO DAGScheduler: failed: Set()
+19/06/21 07:19:35 INFO DAGScheduler: Submitting ResultStage 14 (MapPartitionsRDD[77] at collect at utils.scala:204), which has no missing parents
+19/06/21 07:19:35 INFO MemoryStore: Block broadcast_14 stored as values in memory (estimated size 7.1 KB, free 911.0 MB)
+19/06/21 07:19:35 INFO MemoryStore: Block broadcast_14_piece0 stored as bytes in memory (estimated size 3.8 KB, free 911.0 MB)
+19/06/21 07:19:35 INFO BlockManagerInfo: Added broadcast_14_piece0 in memory on localhost:45515 (size: 3.8 KB, free: 911.2 MB)
+19/06/21 07:19:35 INFO SparkContext: Created broadcast 14 from broadcast at DAGScheduler.scala:1161
+19/06/21 07:19:35 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 14 (MapPartitionsRDD[77] at collect at utils.scala:204) (first 15 tasks are for partitions Vector(0))
+19/06/21 07:19:35 INFO TaskSchedulerImpl: Adding task set 14.0 with 1 tasks
+19/06/21 07:19:35 INFO TaskSetManager: Starting task 0.0 in stage 14.0 (TID 14, localhost, executor driver, partition 0, NODE_LOCAL, 7767 bytes)
+19/06/21 07:19:35 INFO Executor: Running task 0.0 in stage 14.0 (TID 14)
+19/06/21 07:19:35 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
+19/06/21 07:19:35 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+19/06/21 07:19:35 INFO Executor: Finished task 0.0 in stage 14.0 (TID 14). 1782 bytes result sent to driver
+19/06/21 07:19:35 INFO TaskSetManager: Finished task 0.0 in stage 14.0 (TID 14) in 5 ms on localhost (executor driver) (1/1)
+19/06/21 07:19:35 INFO TaskSchedulerImpl: Removed TaskSet 14.0, whose tasks have all completed, from pool 
+19/06/21 07:19:35 INFO DAGScheduler: ResultStage 14 (collect at utils.scala:204) finished in 0.010 s
+19/06/21 07:19:35 INFO DAGScheduler: Job 8 finished: collect at utils.scala:204, took 0.061135 s
+19/06/21 07:19:41 INFO HiveMetaStore: 0: get_database: default
+19/06/21 07:19:41 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_database: default	
+19/06/21 07:19:41 INFO HiveMetaStore: 0: get_database: default
+19/06/21 07:19:41 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_database: default	
+19/06/21 07:19:41 INFO HiveMetaStore: 0: get_tables: db=default pat=*
+19/06/21 07:19:41 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
+19/06/21 07:19:42 INFO HiveMetaStore: 0: get_database: default
+19/06/21 07:19:42 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_database: default	
+19/06/21 07:19:42 INFO HiveMetaStore: 0: get_database: default
+19/06/21 07:19:42 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_database: default	
+19/06/21 07:19:42 INFO HiveMetaStore: 0: get_tables: db=default pat=*
+19/06/21 07:19:42 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
+19/06/21 07:19:42 INFO HiveMetaStore: 0: get_database: default
+19/06/21 07:19:42 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_database: default	
+19/06/21 07:19:42 INFO HiveMetaStore: 0: get_database: default
+19/06/21 07:19:42 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_database: default	
+19/06/21 07:19:42 INFO HiveMetaStore: 0: get_tables: db=default pat=*
+19/06/21 07:19:42 INFO audit: ugi=ubuntu	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 203
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 417
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 370
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 322
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 349
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 460
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 330
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 407
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 455
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 405
+19/06/21 07:34:07 INFO BlockManagerInfo: Removed broadcast_10_piece0 on localhost:45515 in memory (size: 3.4 KB, free: 911.2 MB)
+19/06/21 07:34:07 INFO BlockManagerInfo: Removed broadcast_12_piece0 on localhost:45515 in memory (size: 3.8 KB, free: 911.2 MB)
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 478
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 470
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 420
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 442
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 400
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 432
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 475
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 404
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 401
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 325
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 355
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 429
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 366
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 444
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 384
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 394
+19/06/21 07:34:07 INFO BlockManagerInfo: Removed broadcast_13_piece0 on localhost:45515 in memory (size: 33.5 KB, free: 911.3 MB)
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 338
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 463
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 372
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 340
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 342
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 337
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 336
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 441
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 434
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 327
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 412
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned shuffle 4
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 395
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 462
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 447
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 393
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 413
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 457
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 321
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 323
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 445
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 466
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 350
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 353
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 435
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 414
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 388
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 473
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 360
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 361
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 465
+19/06/21 07:34:07 INFO BlockManagerInfo: Removed broadcast_11_piece0 on localhost:45515 in memory (size: 33.5 KB, free: 911.3 MB)
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 396
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 402
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 368
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 371
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 411
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 416
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 477
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 418
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 427
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 409
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 331
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 461
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 437
+19/06/21 07:34:07 INFO BlockManagerInfo: Removed broadcast_14_piece0 on localhost:45515 in memory (size: 3.8 KB, free: 911.3 MB)
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 389
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 381
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 464
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 380
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 456
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 391
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 467
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 344
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 415
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 471
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 419
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 469
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 428
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 433
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 431
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 356
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 430
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 386
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 424
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 333
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 335
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 425
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 376
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 390
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 406
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 443
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 354
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 382
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 359
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 440
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 448
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 377
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 351
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 334
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 365
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 459
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 392
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 341
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 472
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 423
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 332
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned shuffle 5
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 352
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 426
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 446
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 367
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 479
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 324
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 348
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 369
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 339
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 383
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 379
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 320
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 375
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 450
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 328
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 474
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 364
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 410
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 345
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 421
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 387
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 397
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 476
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 439
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 373
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 436
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 454
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 385
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 452
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 358
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 326
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 468
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 398
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 449
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 458
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 422
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 399
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 343
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 347
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 378
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 329
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 451
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 453
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 362
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 357
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 374
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 438
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 403
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 408
+19/06/21 07:34:07 INFO BlockManager: Removing RDD 35
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned RDD 35
+19/06/21 07:34:07 INFO ContextCleaner: Cleaned accumulator 186

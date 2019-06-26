@@ -1,0 +1,160 @@
+---
+title: "FIFA19"
+author: "J.C. Kameni"
+date: "6/25/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(SparkR)
+library(sparklyr)
+library(tidyverse)
+library(rJava)
+library(naniar)
+library(ggplot2)
+library(ggthemes)
+library(ggiraphExtra)
+library(gridExtra)
+library(knitr)
+library(kableExtra)
+library(ggrepel)
+library(cowplot)
+```
+
+```{r, echo = F}
+data <- readRDS("fifa.RDS")
+```
+
+
+# Top Leagues
+
+If you are looking to build a solid team, the 12 leagues shown below may be a good place to start. 
+Obviously the quality of your team will depend on several factors, one of them being how much money you've got to spend. 
+
+
+```{r echo= F, fig.height=8,  out.width= '50%'}
+
+# Summary by league
+
+options(scipen = 999)
+
+league_summary <- data %>%
+  group_by(League) %>%
+  summarise(`Number of Players` = n(),
+            `Number of Teams` = n_distinct(Club),
+            `Average Player Rating` = round(mean(Overall),2),
+            `Median Player Rating` = median(Overall),
+            `Minimum Player Rating` = min(Overall),
+            `Maximum Player Rating` = max(Overall),
+            `Average Player Age` = mean(Age),
+            `Average Player Potential` = mean(Potential),
+            `Average Player Potential` = round(mean(Potential),2),
+            `Average Player Value (€)` = mean(Value),
+            `Median Player Value (€)` = median(Value)) %>%
+  arrange(desc(`Average Player Rating`))
+
+(league_summary_table <- league_summary%>%
+  kable("html", caption = "League Summary Table", align = "l") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "bordered", "responsive"), full_width = T))
+
+```
+
+
+
+```{r echo = F}
+
+top_leagues <- data %>%
+  select(-Loaned.From) %>%
+  filter(League != "Other")
+
+other_leagues <- data %>%
+  select(-Loaned.From) %>%
+  filter(League == "Other")
+
+```
+
+## It looks like the Italian Serie A offers the 
+```{r echo = F}
+
+major_league_ratings <- ggplot(top_leagues, aes(Overall, fill = League)) + geom_histogram(stat = 'count') + 
+  theme_fivethirtyeight() +
+  scale_fill_manual(values = c("dodgerblue4","dodgerblue2","blue","firebrick2","purple","palevioletred2",
+                               "chartreuse3","darkolivegreen1","yellow","orange","coral3","coral")) +
+  theme(legend.position = "top", legend.text = element_text(size = 8), legend.title = element_text(size = 10)) +
+  labs(caption = "Major Leagues") + 
+  geom_vline(aes(xintercept = median(Overall), col = 'Median'), linetype = "dashed", size = 1) +
+  geom_vline(aes(xintercept = mean(Overall), col = 'Mean'), linetype= 'dashed', size = 1) + 
+  scale_color_manual(name = "Stats", values = c(Median = "blue", Mean = "red")) 
+
+
+other_league_ratings <- ggplot(other_leagues, aes(Overall)) + 
+  geom_histogram(stat = 'count', fill = 'black') + 
+  geom_vline(aes(xintercept = median(Overall), col = 'Median'), linetype = "dashed", size = 1) +
+  geom_vline(aes(xintercept = mean(Overall), col = 'Mean'), linetype = "dashed", size = 1) +
+  scale_color_manual(name = "Stats", values = c(Median = "blue", Mean = "red")) +
+  theme_fivethirtyeight() +
+  labs(caption = "Other Leagues") +
+  theme(legend.position = 'top')
+
+
+overall_ratings2 <- ggplot(data, aes(x = reorder(League, -Overall), y = Overall)) + 
+  geom_boxplot() + 
+  theme_fivethirtyeight() +
+  coord_flip() + 
+  theme(legend.position = 'none')
+
+```
+
+```{r echo = F, fig.height=12, fig.width=16}
+
+gridExtra::grid.arrange(overall_ratings2, gridExtra::arrangeGrob(major_league_ratings, other_league_ratings), ncol =2)
+
+```
+
+
+```{r echo - F, include=F}
+
+library(FactoMineR)
+
+# Matrix for PCA 
+
+league_matrix <- league_summary %>%
+  filter(League != 'Other') %>%
+  select(-League) %>%
+  as.matrix() 
+
+# Apply PCA and print the results
+
+league_pca <- PCA(league_matrix, scale.unit = T)
+
+
+```
+
+
+```{r echo = F, fig.height= 8, fig.width=8}
+
+# Variable components
+
+library(factoextra)
+
+league_comps <- tibble(pca_1 = league_pca$ind$coord[,1],
+                    pca_2 = league_pca$ind$coord[,2])
+
+# Cluster observations using the first two components
+
+league_km <- kmeans(league_comps, centers = 4, nstart = 20, iter.max = 50)
+
+# Converst assigned cluster to factor
+
+clusters_as_factors <- factor(league_km$cluster)
+
+# plot by colored clusters
+
+
+(pca_var_plot <- fviz_pca_var(league_pca, repel = T, pointsize = 'cos2', pointshape = 21, fill = "#E7B800" ,geom.var = c("point", "text", "arrow")) + theme_fivethirtyeight())
+
+(pca_ind_plot <- fviz_pca_ind(league_pca, geom.ind = "point",fill.ind ="#E7B800",  repel = T, geom.var = c("point", "text")) + geom_text_repel(label = league_summary$League[-13], aes(color = clusters_as_factors)) +
+  theme_fivethirtyeight() + labs(col = "Clusters"))
+
+
+```

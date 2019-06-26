@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Thu Jun 20 10:16:14 UTC 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-016b-7463-03d1-00004d862b58 
+Wed Jun 26 07:04:25 UTC 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-016b-9299-9003-0000543cb5a0 
 on database directory memory:/home/ubuntu/FIFA/databaseName=metastore_db with class loader sun.misc.Launcher$AppClassLoader@277050dc 
 Loaded from file:/home/ubuntu/spark/spark-2.4.0-bin-hadoop2.7/jars/derby-10.12.1.1.jar
 java.vendor=Oracle Corporation

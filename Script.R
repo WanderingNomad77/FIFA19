@@ -5,27 +5,25 @@ library(rJava)
 library(naniar)
 library(ggplot2)
 library(ggthemes)
-library(fmsb)
-
+library(ggiraphExtra)
+library(gridExtra)
+library(knitr)
+library(kableExtra)
+library(ggrepel)
 
 
 # CREATE FIFA ULTIMATE TEAM
 
 # 1/ Data overview -- Overall analysis: Distribution of ratings. 
 # Ratings by age
-# Ratings by club (Focus on 5 major leagues i.e. Premiere League, Liga, Bundesliga, 
-#Serie A, Ligue 1)
+# Ratings by club (Focus on major leagues i.e. Premiere League, Liga, Bundesliga, 
+#Serie A, Ligue 1, Primeira Liga, Russian Premier League, MLS, Brazilian Serie A)
 # Who are the best strikers/midfielders/defenders/GKs?
 # Who has the greatest potential?
 # Best free agents?
 # Best quality/price ratio?
 # Who can you buy with your budget? How can you maximize your chances to win the league?
 
-
-
-
-
-data2 <- read.csv("data.csv", stringsAsFactors = F, na.strings = c("", " "))
 
 # Import data
 
@@ -71,25 +69,48 @@ primeira_liga <- c("Os Belenenses", "SL Benfica", "Boavista FC", "SC Braga", "GD
                    "Moreirense FC", "CD Nacional", "Portimonense SC", "FC Porto", "Rio Ave FC", "Santa Clara", "Sporting CP",
                    "CD Tondela", "Vitória Guimarães", "Vitória de Setúbal")
 
-ligue_1 <- c("Amiens SC", "Angers SCO", "FC Girondins de Bordeaux", "Stade Malherbe Caen", "Dijon FCO", "En Avant de Guigamps", "LOSC Lille",
+ligue_1 <- c("Amiens SC", "Angers SCO", "FC Girondins de Bordeaux", "Stade Malherbe Caen", "Dijon FCO", "En Avant de Guingamp", "LOSC Lille",
              "Olympique Lyonnais", "Olympique de Marseille", "AS Monaco", "Montpellier HSC", "FC Nantes", "OGC Nice", "Nîmes Olympique",
              "Paris Saint-Germain", "Stade de Reims", "Stade Rennais FC", "AS Saint-Étienne", "RC Strasbourg Alsace", "Toulouse Football Club")
 
 russian_premier_league <- c("PFC CSKA Moscow", "Spartak Moscow", "PFC CSKA Moscow", "Lokomotiv Moscow")
 
-brazilian_serie_A <- c("América FC (Minas Gerais)","Atlético Mineiro", "Atlético Paranaense", "Bahia", "Ceará Sporting Club", "Chapecoense", 
-                       "Corinthians", "Cruzeiro", "Fluminense", "Grêmio", "Internacional", "Paraná", "Santos", "Sport Club do Recife")
+brazilian_serie_A <- c("América FC (Minas Gerais)","Atlético Mineiro", "Atlético Paranaense", "Bahia","Botafogo", "Ceará Sporting Club", "Chapecoense", 
+                       "Vitória", "Cruzeiro", "Fluminense", "Grêmio", "Internacional", "Paraná", "Santos", "Sport Club do Recife")
+
+MLS_West <- c("Colorado Rapids", "FC Dallas", "Houston Dynamo", "LA Galaxy", "Los Angeles FC", "Minnesota United FC", "Portland Timbers", "Real Salt Lake",
+         "San Jose Earthquakes", "Seattle Sounders FC", "Sporting Kansas City", "Vancouver Whitecaps FC")
+
+MLS_East <- c("Atlanta United", "Chicago Fire", "Columbus Crew SC", "DC United", "Montreal Impact", "New England Revolution", "New York City FC",
+              "New York Red Bulls", "Orlando City SC", "Philadelphia Union", "Toronto FC")
+
+eredivisie <- c("ADO Den Haag", "Ajax", "AZ Alkmaar", "De Graafschap", "FC Emmen", "Excelsior", "Feyenoord", "Fortuna Sittard", "FC Groningen",
+                "SC Heerenveen", "Heracles Almelo", "NAC Breda", "PEC Zwolle", "PSV", "FC Utrecht", "Vitesse", "VVV-Venlo", "Willem II")
+
+superlig <- c("Akhisar Belediyespor", "Alanyaspor", "MKE Ankaragücü", "Antalyaspor", "Beşiktaş JK", "Bursaspor", "Çaykur Rizespor", "BB Erzurumspor",
+              "Fenerbahçe SK", "Galatasaray SK", "Göztepe SK", "Medipol Başakşehir FK", "Kasimpaşa SK", "Kayserispor", "Atiker Konyaspor",
+              "Sivasspor", "Trabzonspor", "Yeni Malatyaspor")
+
+primera_division <- c("Club Atlético Aldosivi", "Argentinos Juniors", "Atlético Tucumán", "Club Atlético Banfield", "Belgrano de Córdoba",
+                     "Boca Juniors", "Club Atlético Colón", "Defensa y Justicia", "Estudiantes de La Plata", "Gimnasia y Esgrima La Plata",
+                     "Godoy Cruz", "Club Atlético Huracán", "Independiente", "Club Atlético Lanús", "Newell's Old Boys", "Patronato",
+                     "Racing Club", "River Plate", "Rosario Central", "San Lorenzo de Almagro", "San Martin de Tucumán", "San Martín de San Juan",
+                     "Club Atlético Talleres", "Club Atlético Tigre", "Unión de Santa Fe", "Vélez Sarsfield")
 
 
 data <- data %>%
-  mutate(League = ifelse(Club %in% premier_league, "Premier League", 
-                         ifelse(Club %in% liga, "Liga", 
-                                ifelse(Club %in% bundesliga, "Bundesliga",
-                                       ifelse(Club %in% serie_A, "Serie A",
-                                              ifelse(Club %in% primeira_liga, "Primeira Liga",
-                                                     ifelse(Club %in% ligue_1, "Ligue 1",
-                                                            ifelse(Club %in% russian_premier_league, "Russian Premier League",
-                                                                   ifelse(Club %in% brazilian_serie_A, "Brazilian Serie A", "Other"))))))))) %>%
+  mutate(League = ifelse(Club %in% premier_league, "English Premier League", 
+                         ifelse(Club %in% liga, "Spanish Liga", 
+                                ifelse(Club %in% bundesliga, "German Bundesliga",
+                                       ifelse(Club %in% serie_A, "Italian Serie A",
+                                              ifelse(Club %in% primeira_liga, "Portuguese Primeira Liga",
+                                                     ifelse(Club %in% ligue_1, "French Ligue 1",
+                                                                   ifelse(Club %in% brazilian_serie_A, "Brazilian Série A",
+                                                                          ifelse(Club %in% MLS_West, "MLS Western Conference",
+                                                                                 ifelse(Club %in% MLS_East, "MLS Eastern Conference",
+                                                                                        ifelse(Club %in% eredivisie, "Dutch Eredivisie",
+                                                                                               ifelse(Club %in% superlig, "Turkish Süper Lig",
+                                                                                                      ifelse(Club %in% primera_division, "Argentinian Primera División", "Other")))))))))))))%>%
   select(ID:Club, League, Club.Logo:Release.Clause)
 
 # 3. Positions
@@ -106,32 +127,24 @@ data <- data %>%
   select(ID:Wage, Position, Pitch_Position, Special:Release.Clause)
 
 
+
+
 # 4. Drop Variables with too many missing values
 
 missing_vals <- naniar::gg_miss_var(data, show_pct = T)
 
-data <- data %>%
+top_leagues <- data %>%
   select(-Loaned.From) %>%
-  filter(League != 'Other')
+  filter(League != "Other") %>%
+  mutate(wage_bracket =
+           ifelse(Value %in% c(1000, 3000), "Less Valuable",
+                  ifelse(Value %in% c(3001, 9000), "Valuable",
+                         ifelse(Value %in% c(9001, 23000), "Very Valuable",
+                                "Most Valuable"))))
 
-
-### GRAPHS
-
-## OVERALL STATS
-
-# Distribution of ratings 
-
-overall_ratings <- ggplot(data, aes(Overall, fill = League)) + geom_histogram(stat = 'count') + facet_wrap(~League) + theme_gdocs()
-overall_ratings2 <- ggplot(data, aes(x = League, y = Overall, fill = League)) + geom_boxplot() + geom_point() + theme_fivethirtyeight()
-
-ggRadar(data[,c(10,15,55:58)], aes(group = Pitch_Position)) + facet_wrap(~Pitch_Position) + scale_y_discrete(breaks = NULL)
-
-## Distribution of Age relative to player rating
-
-by_age <- data %>%
-  group_by(Age, Pitch_Position, League) %>%
-  summarise(rating = mean(Overall))
-
+other_leagues <- data %>%
+  select(-Loaned.From) %>%
+  filter(League == "Other")
 
 
 
@@ -142,6 +155,4 @@ sc <- spark_connect("local")
 # Copy data to Spark Cluster 
 
 data_tbl <- copy_to(sc, data, overwrite = T)
-
-
 
