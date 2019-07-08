@@ -12,12 +12,22 @@ library(FactoMineR)
 
 # Matrix for PCA 
 
+
+player_matrix <- data %>%
+  select(Crossing:GKReflexes) %>%
+  as.matrix()
+  
+player_pca <- PCA(player_matrix, scale.unit = T)
+
+
 fifa_matrix <- data %>%
   filter(League == "English Premier League", Potential >= 80, Age <= 21) %>%
   select_if(is.numeric) %>%
   select(-ID, -Special, -Jersey.Number) %>%
   as.matrix() 
 
+fifa_matrix2 <- league_summary %>%
+  select(-League)
 # Apply PCA and print the results
 
 (fifa_pca <- PCA(fifa_matrix, scale.unit = T))

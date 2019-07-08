@@ -71,7 +71,9 @@ by_team <- data %>%
   top_n(10, `Total Team Value`) %>%
   arrange(desc(`Total Team Value`))
 
-ggRadar(data[,c(10,15,55:58)], aes(group = League, facet = Pitch_Position)) + scale_y_discrete(breaks = NULL)
+ggRadar(filter(data[,c(10,15,55:58)], !is.na(Pitch_Position)), aes(group = League, facet = Pitch_Position)) + scale_y_discrete(breaks = NULL) +
+  scale_color_manual(values = c("dodgerblue4","dodgerblue2","dodgerblue","firebrick2","purple","palevioletred2",
+                               "chartreuse3","darkolivegreen1","yellow","orange","coral3","coral", "grey"))
 
 
 ## Top teams
@@ -96,12 +98,16 @@ by_age <- data %>%
   group_by(Age, Pitch_Position, League) %>%
   summarise(rating = mean(Overall))
 
+ggplot(filter(data, League != 'Other'), aes(Age, fill = Pitch_Position)) + 
+  geom_histogram() + 
+  facet_wrap(~League)
 # Ratings by nationality 
 
 by_nationality <- top_leagues %>%
   group_by(Nationality) %>%
   summarize(players = n(),
-            avg_rating = mean(Overall)) 
+            avg_rating = mean(Overall),
+            med_rating = median(Overall)) 
 
 by_nationality%>%
   filter(players >= quantile(players, 0.90)) %>%
@@ -119,18 +125,26 @@ by_position <- top_leagues %>%
   filter(!is.na(Pitch_Position)) %>%
   arrange(Pitch_Position, desc(avg), val)
 
+
+
+
 position_plot <- top_leagues %>%
   filter(!is.na(Pitch_Position)) %>%
   ggplot(aes(reorder(League, -Overall), Overall, fill = Pitch_Position)) +
   geom_boxplot() +
-  theme_stata() +
+  theme_fivethirtyeight()+
   facet_grid(vars(Pitch_Position), vars(wage_bracket)) +
   theme(axis.text.x = element_text(angle = 90), legend.position = 'none') +
   xlab("League")
 
-  ggplot(top_leagues, aes(reorder(League, - Overall), Overall)) + geom_boxplot() + facet_grid(~Pitch_Position) + coord_flip()
-  
-  ggplot(top_leagues, aes(Overall, Value, col = League)) + geom_point() + facet_wrap(~League)
-  
+# Value by position 
+
+position_value <- by_position %>%
+  filter(!is.na(Pitch_Position)) %>%
+  ggplot(aes(x = reorder(League, -val), y = val, fill = Pitch_Position)) +
+  geom_bar(stat = 'identity') +
+  theme_gdocs() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1), legend.position = 'none') +
+  facet_wrap(~Pitch_Position)
 
   

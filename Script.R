@@ -46,7 +46,35 @@ data <- data %>%
 data <- data %>%
   dplyr::mutate(Value = as.numeric(str_extract_all(Value, "[[:digit:]]+\\.*[[:digit:]]*")) * value_multiplier) %>%
   mutate(Wage = as.numeric(str_extract_all(Wage, "[[:digit:]]+\\.*[[:digit:]]*")) * wage_multiplier) %>%
-  mutate(Release.Clause = as.numeric(str_extract_all(Release.Clause, "[[:digit:]]+\\.*[[:digit:]]*"))* clause_multiplier)
+  mutate(Release.Clause = as.numeric(str_extract_all(Release.Clause, "[[:digit:]]+\\.*[[:digit:]]*"))* clause_multiplier) 
+
+# C - Player Heights and Weights
+
+data$Weight <- strsplit(data$Weight, 'lbs') %>%
+  as.numeric()
+
+data$Height <- gsub("'", ".", data$Height) %>%
+  as.numeric() 
+data$Height <- round(data$Height * 30.48, 0)
+
+# D - Dummify Preferred.Foot
+
+data <- data %>%
+  mutate(Foot = ifelse(Preferred.Foot == "Left", 0, 1))
+
+# Better player photos
+
+data$Photo <- paste(
+  'https://www.fifaindex.com/static/FIFA19/images/players/10/',data$ID,'@2x.png', sep = "")
+
+# Better club logos
+
+
+data$Club.Logo <- paste("https://www.fifaindex.com/static/FIFA19/images/crest/10/light/",
+                        sub( "\\.png.*" ,"", sub(".*.light/", "", data$Club.Logo)),
+                        "@2x.png",
+                        sep = "")
+
 
 # 2. Filter by 7 major European Leagues (Premiere League, Liga, Bundesliga, Serie A, Ligue 1, Primeira Liga, Russian League) + MLS
 
@@ -120,11 +148,12 @@ midfield <- c("CAM","CDM", "CM", "LAM", "LDM", "LCM", "LM", "RAM", "RDM", "RCM",
 attack <- c("CF", "LF", "RF", "ST", "LW", "RW", "LS", "RS")
 
 data <- data %>%
-  mutate(Pitch_Position = ifelse(Position %in% defense, "Defender",
+  dplyr::mutate(Pitch_Position = ifelse(Position %in% defense, "Defender",
                                  ifelse(Position %in% midfield, "Midfielder",
                                         ifelse(Position %in% attack, "Striker",
                                                ifelse(Position == "GK", "Goalkeeper", "Other"))))) %>%
-  select(ID:Wage, Position, Pitch_Position, Special:Release.Clause)
+  select(ID:Wage, Position, Pitch_Position, Special:Release.Clause) %>%
+  filter(!is.na(Pitch_Position))
 
 
 
@@ -137,10 +166,12 @@ top_leagues <- data %>%
   select(-Loaned.From) %>%
   filter(League != "Other") %>%
   mutate(wage_bracket =
-           ifelse(Value %in% c(1000, 3000), "Less Valuable",
-                  ifelse(Value %in% c(3001, 9000), "Valuable",
-                         ifelse(Value %in% c(9001, 23000), "Very Valuable",
-                                "Most Valuable"))))
+           ifelse(Wage %in% c(0, 3000), "1,000 € - 3,000 €",
+                  ifelse(Wage %in% c(3001, 9000), "3,001 € - 9,000 €",
+                         ifelse(Wage %in% c(9001, 23000), "9,001 € - 23,000 €","+ 23,001 €"))))
+
+top_leagues$wage_bracket <- factor(top_leagues$wage_bracket, levels = c("1,000 € - 3,000 €","3,001 € - 9,000 €","9,001 € - 23,000 €","+ 23,001 €" ),ordered = T)
+top_leagues$Pitch_Position <- factor(top_leagues$Pitch_Position, levels = c("Goalkeeper", "Defender", "Midfielder", "Striker"), ordered= T)
 
 other_leagues <- data %>%
   select(-Loaned.From) %>%
@@ -156,3 +187,22 @@ sc <- spark_connect("local")
 
 data_tbl <- copy_to(sc, data, overwrite = T)
 
+
+
+
+scores <- list("Messi" = data[,c("Crossing", "Penalties", "ShortPassing")][1:3,])
+
+
+scores <- data.frame("Label"=names(data[c("Crossing", "Penalties", "ShortPassing")]),
+                     "Messi" = as.numeric(data[,c("Crossing", "Penalties", "ShortPassing")][1,]))
+
+chartJSRadar(scores, maxScale = 100, showToolTipLabel=TRUE)
+
+############
+
+labs <- c("Crossing", "Penalties", "ShortPassing")
+
+scores <- list(as.numeric(data[,c("Crossing", "Penalties", "ShortPassing")][1,]))
+
+
+chartJSRadar(scores = scores, labs = labs, maxScale = 100)
